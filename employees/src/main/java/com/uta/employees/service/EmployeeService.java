@@ -23,19 +23,6 @@ public class EmployeeService {
         return employeeRepo.findAll();
     }
 
-    //    public Employee getEmployeeDetails(Integer id){
-//        Optional<Employee> optionalEmployee = employeeRepo.findById(id);
-//        if(optionalEmployee.isPresent()){
-//            Employee employee = optionalEmployee.get();
-//            employee.getFirstName();
-//            employee.getLastName();
-//            employee.getEmail();
-//            employee.getSalary();
-//            employee.getPosition();
-//            return employee;
-//        }else
-//            throw new EmployeeNotFoundException(String.format("Employee with id %d does not exist",id),404);
-    //  }
     public Employee createEmployee(EmployeeDTO employeeDTO) {
         Employee employee = new Employee(employeeDTO.getFirstName(), employeeDTO.getLastName(), employeeDTO.getEmail(), employeeDTO.getPhoneNum(), employeeDTO.getSalary(), employeeDTO.getPosition());
         return employeeRepo.save(employee);
