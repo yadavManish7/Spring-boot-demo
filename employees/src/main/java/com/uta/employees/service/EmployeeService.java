@@ -33,7 +33,7 @@ public class EmployeeService {
         if (optionalEmployee.isPresent()) {
             return optionalEmployee.get();
         } else {
-            throw new EmployeeNotFoundException(String.format("Employee with id %d does not exist", id), 404);
+            throw new EmployeeNotFoundException(String.format("getEmployeeDetail-Employee with id %d does not exist", id), 404);
         }
     }
 
@@ -49,7 +49,7 @@ public class EmployeeService {
             employeeToUpdate.setPhoneNum(employeeDTO.getPhoneNum());
             return employeeRepo.save(employeeToUpdate);
         } else {
-            throw new EmployeeNotFoundException(String.format("Employee with id %d does not exist", id), 404);
+            throw new EmployeeNotFoundException(String.format("updateEmployee-Employee with id %d does not exist", id), 404);
         }
     }
 
@@ -57,7 +57,7 @@ public class EmployeeService {
         try {
             employeeRepo.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new EmployeeNotFoundException(String.format("Employee with id %d does not exist", id), 404);
+            throw new EmployeeNotFoundException(String.format("deleteEmployee-Employee with id %d does not exist", id), 404);
         }
 
     }
